@@ -30,6 +30,7 @@ namespace TechnicalShop.Components
             TitleTb.Text = product.Title;
             NewPrice.Text = product.CostDiscount;
             OldPrice.Visibility = product.CostVisibility;
+            EvalutionTb.Text = product.OverideFeedback.ToString("N2");
             OldPrice.Text = product.Cost.ToString("N0");
             BasketBt.Source = new BitmapImage(new Uri(@"/Resources/Basket.png", UriKind.Relative));
             LikeBt.Source = new BitmapImage(new Uri(@"/Resources/Heart.png", UriKind.Relative));
