@@ -8,6 +8,7 @@ using System.Windows;
 namespace TechnicalShop.Baseы
 {
     public partial class Product
+
     {
         public string CostDiscount
         {
@@ -30,7 +31,7 @@ namespace TechnicalShop.Baseы
             }
         }
 
-        public string OverideFeedback
+        public string OverrideFeedback
         {
             get
             { 
@@ -40,15 +41,25 @@ namespace TechnicalShop.Baseы
                 {
                     sum += item.Evaluation;
                 }
-                if(Feedback.Count() == 1 || Feedback.Count() % 10 == 1)
+                if(Feedback.Count() >= 11 && Feedback.Count() <= 19)
+                    return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывов";
+                else if(Feedback.Count() == 1 || Feedback.Count() % 10 == 1)
                     return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзыв";
-                else if (Feedback.Count() == 2 || Feedback.Count() == 3 || Feedback.Count() == 4)
-                    return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывa";
-                else if (Feedback.Count() % 10 == 2 || Feedback.Count() % 10 == 3 || Feedback.Count() % 10 == 4)
+                else if (Feedback.Count() % 10 >= 2 || Feedback.Count() % 10 <= 4)
                     return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывa";
                 else 
                     return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывов";
 
+            }
+        }
+
+        public string GetImage
+        {
+            get
+            {
+                string g = "\u005c" + MainImagePath.Replace(' ', '\0').Replace('/', '\u005c');
+
+                return g;
             }
         }
 
