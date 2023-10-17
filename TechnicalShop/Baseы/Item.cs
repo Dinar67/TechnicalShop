@@ -30,7 +30,7 @@ namespace TechnicalShop.Baseы
             }
         }
 
-        public double OverideFeedback
+        public string OverideFeedback
         {
             get
             { 
@@ -39,9 +39,15 @@ namespace TechnicalShop.Baseы
                 foreach(var item in Feedback)
                 {
                     sum += item.Evaluation;
-
                 }
-                return sum / Feedback.Count;
+                if(Feedback.Count() == 1 || Feedback.Count() % 10 == 1)
+                    return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзыв";
+                else if (Feedback.Count() == 2 || Feedback.Count() == 3 || Feedback.Count() == 4)
+                    return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывa";
+                else if (Feedback.Count() % 10 == 2 || Feedback.Count() % 10 == 3 || Feedback.Count() % 10 == 4)
+                    return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывa";
+                else 
+                    return $"★ {(sum / Feedback.Count()).ToString("N2")}  {Feedback.Count()} отзывов";
 
             }
         }
