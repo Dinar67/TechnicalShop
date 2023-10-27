@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TechnicalShop.Pages;
+using TechnicalShop.Components;
 
 namespace TechnicalShop
 {
@@ -25,8 +26,15 @@ namespace TechnicalShop
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.mainWindow = this;
             LogoImage.Source = new BitmapImage(new Uri(@"\Resources\pngwing.png", UriKind.Relative));
             MainFrame.Navigate(new ItemList());
+
+        }
+
+        private void AuthBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AuthorizatePage());
         }
     }
 }

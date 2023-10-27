@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,10 +27,13 @@ namespace TechnicalShop.Pages
         {
             InitializeComponent();
             IEnumerable<Product> productSortList = App.db.Product;
+            string OnePath = "C:\\Users\\212111\\Desktop\\Магазин техники\\";
             foreach (var product in productSortList)
             {
+                product.MainImage = File.ReadAllBytes(OnePath + product.MainImagePath);
                 MainWp.Children.Add(new ItemUserControl(product));
             }
+            App.db.SaveChanges();
         }
     }
 }

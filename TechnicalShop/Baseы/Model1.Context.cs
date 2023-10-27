@@ -13,10 +13,10 @@ namespace TechnicalShop.Baseы
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HardwareShoEntities : DbContext
+    public partial class HardwareSho1Entities : DbContext
     {
-        public HardwareShoEntities()
-            : base("name=HardwareShoEntities")
+        public HardwareSho1Entities()
+            : base("name=HardwareSho1Entities")
         {
         }
     
@@ -27,6 +27,5 @@ namespace TechnicalShop.Baseы
     
         public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

@@ -14,6 +14,8 @@ namespace TechnicalShop
     /// </summary>
     public partial class App : Application
     {
-        public static HardwareShoEntities db = new HardwareShoEntities();
+        public static HardwareSho1Entities db = new HardwareSho1Entities();
+        public static bool isAdmin = false;
+        public static bool isUser = false;
     }
 }
